@@ -58,8 +58,8 @@ class node{
     int data;
     node *left,*right;    
 };
-node* fun(node *&rt,node *x){
-    if(rt==NULL){
+node* fun(node *rt,node *x){
+    if(rt==NULL){        
         return x;
     }
     
@@ -67,9 +67,15 @@ node* fun(node *&rt,node *x){
         rt->right=fun(rt->right,x);
     }else{
         rt->left=fun(rt->left,x);
-    }         
+    }  
+    return rt;       
 }
-
+void inorder(node *it){
+    if(it==NULL) return;
+    inorder(it->left);
+    cout << it->data sp;
+    inorder(it->right);
+}
 
 int main()
 { 
@@ -95,7 +101,7 @@ int main()
             t->left=t->right=NULL;
             root=fun(root,t);
         }     
-        ok;
+        inorder(root);
     }     
 }
 
